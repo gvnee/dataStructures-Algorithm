@@ -1,1 +1,9 @@
-# dataStructures-Algorithm
+# data structures
+
+## Array
+
+
+## Linked List
+
+
+# Algorithms
