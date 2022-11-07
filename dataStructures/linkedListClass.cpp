@@ -25,6 +25,7 @@ public:
     void insertNode(int);
     void printList();
     void deleteNode(int);
+    void reverse();
 };
 bool LinkedList::isEmpty(){
     if(head) return false;
@@ -46,8 +47,7 @@ void LinkedList::insertNode(int data){
         return;
     }
 
-    Node* temp = new Node();
-    temp = head;
+    Node* temp = head;
     while(temp->next) temp = temp->next;
     temp->next = newNode;
 }
@@ -58,8 +58,7 @@ void LinkedList::printList(){
         return;
     }
 
-    Node* temp = new Node();
-    temp = head;
+    Node* temp = head;
     while(temp){
         printf("%d ", temp->data);
         temp = temp->next;
@@ -99,7 +98,18 @@ void LinkedList::deleteNode(int index){
 
 }
 
+void LinkedList::reverse(){
+    Node* prev = NULL;
+    Node* newList = head;
+    Node* oldList = head;
 
+    while(oldList->next){
+        newList->next = prev;
+        prev = oldList;
+        oldList = oldList->next;
+    }
+    head = newList;
+}
 
 int main(){
 
@@ -111,6 +121,10 @@ int main(){
     list.insertNode(100);
 
     list.deleteNode(1);
+
+    list.printList();
+
+    // list.reverse();
 
     list.printList();
 

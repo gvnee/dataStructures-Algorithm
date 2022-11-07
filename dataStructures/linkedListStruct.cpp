@@ -12,6 +12,29 @@ void append(Node** head, int data){
     temp->next = *head;
     *head = temp;
 }
+void insert(Node** head, int data, int index){
+    Node* newNode = new Node();
+    newNode->data = data;
+    if(index == 1){
+        newNode->next = *head;
+        *head = newNode;
+        return;
+    }
+    if(*head == NULL){
+        printf("the list is empty\n");
+        return;
+    }
+    Node* temp = *head;
+    for(int i = 0;i<index-2;i++){
+        if(temp->next == NULL){
+            printf("index out of bound\n");
+            return;
+        }
+        temp = temp->next;
+    }
+    newNode->next = temp->next;
+    temp->next = newNode;
+}
 void print(Node* head){
     while(head){
         printf("%d ", head->data);
@@ -32,6 +55,12 @@ int main(){
         scanf("%d", &data);
         append(&head, data);
     }
+
+    insert(&head, 100, 1);
+    insert(&head, 100, 4);
+    insert(&head, 100, 6);
+    insert(&head, 100, 2);
+
     print(head);
 
     return 0;
