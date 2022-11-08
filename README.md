@@ -14,3 +14,15 @@
 
 # Algorithms
 - Floyd's Cycle Finding Algorithm
+  
+# c++ stuff
+- template
+  
+### Standart Template Library
+- array
+- vector
+- set
+- map
+- pair
+- queue
+- stack
