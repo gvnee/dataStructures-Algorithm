@@ -43,6 +43,10 @@ void print(Node* head){
     printf("\n");
 }
 
+void remove(Node* head){
+
+}
+
 int main(){
     Node* head = NULL;
 
@@ -60,6 +64,8 @@ int main(){
     insert(&head, 100, 4);
     insert(&head, 100, 6);
     insert(&head, 100, 2);
+
+    // remove();
 
     print(head);
 
