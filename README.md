@@ -1,28 +1,9 @@
-# data structures
+# competitive programming resources
 
-### Linked List
-- ~~insert a node at the beginning~~
-- insert a node at nth position
-- ~~insert a node at the ending~~
-- delete a node
-- ~~print all nodes~~
-- reverse a linked list
-
-### Stack
-
-### Queue
-
-# Algorithms
-- Floyd's Cycle Finding Algorithm
-  
-# c++ stuff
-- template
-  
-### Standart Template Library
-- array
-- vector
-- set
-- map
-- pair
-- queue
-- stack
+- https://www.youtube.com/user/mycodeschool
+- https://www.learncpp.com/
+- https://cses.fi/book/book.pdf
+- https://www.youtube.com/watch?v=Vc1RyqWFbiA&list=PL5jc9xFGsL8G3y3ywuFSvOuNm3GjBwdkb
+- https://wcipeg.com/wiki/Special:AllPages
+- https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/
+- https://edu.anarcho-copy.org/Algorithm/grokking-algorithms-illustrated-programmers-curious.pdf
