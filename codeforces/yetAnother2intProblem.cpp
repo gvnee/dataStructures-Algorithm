@@ -7,6 +7,14 @@ int main(){
   #ifndef ONLINE_JUDGE
   freopen("input.txt", "r", stdin);
   #endif
-  
+  int t;
+  cin>>t;
+  while(t--){
+    ll a, b;
+    cin>>a>>b;
+    ll dif = abs(a-b);
+    if(dif%10==0) cout<<dif/10<<"\n";
+    else cout<<dif/10 + 1<<"\n";
+  }
   return 0;
 }

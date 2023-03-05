@@ -7,6 +7,14 @@ int main(){
   #ifndef ONLINE_JUDGE
   freopen("input.txt", "r", stdin);
   #endif
-  
+  int t;
+  cin>>t;
+  int n;
+  while(t--){
+    cin>>n;
+    for(int i = 0;i<n;i++){
+      
+    }
+  }
   return 0;
 }
