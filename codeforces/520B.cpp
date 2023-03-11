@@ -1,3 +1,4 @@
+// Two buttons
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
@@ -5,7 +6,23 @@ using ll = long long;
 int temp;
 
 void solve(){
-
+  int n,m;
+  cin>>n>>m;
+  int res = 0;
+  if(n>=m){
+    res = n-m;
+    cout<<res<<"\n";
+    return;
+  }
+  while(true){
+    if(n < m){
+      n *= 2;
+      res++;
+    }
+    res += n - m;
+    cout<<res<<"\n";
+    return;
+  }
 }
 
 int main(){
