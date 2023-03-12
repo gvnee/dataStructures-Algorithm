@@ -1,27 +1,41 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
-int main(){
-  ios_base::sync_with_stdio(false);
-  cin.tie(nullptr);
-  #ifndef ONLINE_JUDGE
-  freopen("input.txt", "r", stdin);
-  #endif
-  int n, m;
-  cin>>n>>m;
+#define pb push_back
+
+const int MOD = int(1e9)+7;
+int temp;
+
+void solve(){
+  int n, cc;
+  cin>>n>>cc;
   vector<int> coins;
-  int a;
-  for(int i = 0;i<m;i++){
-    cin>>a;
-    coins.push_back(a);
+  for(int i = 0;i<cc;i++){
+    cin>>temp;
+    coins.pb(temp);
   }
-  ll count[10000] = {0};
-  count[0] = 1;
-  for(int i = 1;i<=n;i++){
-    for(auto c:coins){
-      if(i-c >= 0) count[i] += count[i-c];
-    }
-  }
-  cout<<count[n]<<"\n";
+  
+  ll dp[n+1] = {0};
+  dp[0] = 1;
+
+  for(auto c : coins)
+    for(int i = 1;i<=n;i++)
+      if(i - c >= 0)
+        dp[i] += dp[i-c];
+
+  cout<<dp[n];
+}
+
+int main(){
+  
+  ios_base::sync_with_stdio(false); cin.tie(nullptr);
+  // #ifndef ONLINE_JUDGE
+  // freopen("input.txt", "r", stdin);
+  // #endif
+
+  int t = 1;
+  // cin>>t;
+  while(t--) solve();
+  
   return 0;
 }
