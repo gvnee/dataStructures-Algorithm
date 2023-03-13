@@ -1,13 +1,17 @@
+// All Pair Digit Sums
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
 
 const int MOD = int(1e9) + 7;
-double PI = atan(1)*4;
 int temp;
 
 void f(){
-
+  ll n;
+  cin>>n;
+  for(int i = 0;i<n;i++){
+    
+  }
 }
 
 int main(){

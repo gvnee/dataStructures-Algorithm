@@ -3,19 +3,20 @@ using namespace std;
 using ll = long long;
 
 const int MOD = int(1e9) + 7;
-double PI = atan(1)*4;
 int temp;
 
 void f(){
-
+  int a, s;
+  cin>>a>>s;
+  cout<<2*s - a;
 }
 
 int main(){
   
   ios_base::sync_with_stdio(false); cin.tie(nullptr);
-  #ifndef ONLINE_JUDGE
-  freopen("input.in", "r", stdin);
-  #endif
+  // #ifndef ONLINE_JUDGE
+  // freopen("input.in", "r", stdin);
+  // #endif
 
   int t = 1;
   // cin>>t;
