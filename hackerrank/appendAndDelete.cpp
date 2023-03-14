@@ -24,16 +24,27 @@ void f(){
 
   // cout<<commonPrefix<<"\n";
   // cout<<k;
-  if(a.size() + b.size() - 2*commonPrefix <= k) cout<<"Yes\n";
-  else cout<<"No\n";
+
+  int diff = a.size() + b.size() - 2*commonPrefix;
+
+  //1st case k greater than or equal to a+b
+  if(k >= a.size() + b.size()) cout<<"Yes\n";
+  
+  //2nd case k less than difference
+  else if(k < diff) cout<<"No\n";
+
+  //3rd case
+  else if(k % 2 != diff % 2) cout<<"No\n";
+
+  else cout<<"Yes\n";
 }
 
 int main(){
   
   ios_base::sync_with_stdio(false); cin.tie(nullptr);
-  #ifndef ONLINE_JUDGE
-  freopen("input.in", "r", stdin);
-  #endif
+  // #ifndef ONLINE_JUDGE
+  // freopen("input.in", "r", stdin);
+  // #endif
 
   int t = 1;
   // cin>>t;
