@@ -14,7 +14,7 @@ int main(){
   
   ios_base::sync_with_stdio(false); cin.tie(nullptr);
   #ifndef ONLINE_JUDGE
-  freopen("input.in", "r", stdin);
+    freopen("input.in", "r", stdin);
   #endif
 
   int t = 1;
