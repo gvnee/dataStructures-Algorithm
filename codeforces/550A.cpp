@@ -10,7 +10,13 @@ double PI = atan(1)*4;
 int temp;
 
 void f(){
+  string s;
+  cin>>s;
+  for(int i = 0;i<s.size()-1;i++){
+    if(s[i] == 'A' && s[i+1] == 'B'){
 
+    }
+  }
 }
 
 int main(){

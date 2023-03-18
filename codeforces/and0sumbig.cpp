@@ -10,7 +10,13 @@ double PI = atan(1)*4;
 int temp;
 
 void f(){
-
+  int n, k;
+  cin>>n>>k;
+  ll res = 1;
+  for(int i = 0;i<k;i++){
+    res = (res*n)%MOD;
+  }
+  cout<<res<<"\n";
 }
 
 int main(){
@@ -21,8 +27,8 @@ int main(){
   #endif
 
   int t = 1;
-  // cin>>t;
+  cin>>t;
   while(t--) f();
-  
+
   return 0;
 }

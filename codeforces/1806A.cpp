@@ -10,7 +10,11 @@ double PI = atan(1)*4;
 int temp;
 
 void f(){
-
+  int x1, y1, x2, y2;
+  cin>>x1>>y1>>x2>>y2;
+  if(y1>y2 || x2-x1>y2-y1) cout<<"-1\n";
+  else if(x2<x1) cout<<x1-x2+2*(y2-y1)<<"\n";
+  else cout<<y2-y1+abs(y2-x2)<<"\n";
 }
 
 int main(){
@@ -21,7 +25,7 @@ int main(){
   #endif
 
   int t = 1;
-  // cin>>t;
+  cin>>t;
   while(t--) f();
   
   return 0;

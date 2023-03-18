@@ -10,7 +10,29 @@ double PI = atan(1)*4;
 int temp;
 
 void f(){
-
+  int n;
+  cin>>n;
+  string str;
+  cin>>str;
+  int l = 0, r = str.size() - 1;
+  int res = str.size();
+  while(l < r){
+    if(str[l] == '0' && str[r] == '1'){
+      l++;
+      r--;
+      res-=2;
+    }
+    else if(str[l] == '1' && str[r] == '0'){
+      l++;
+      r--;
+      res-=2;
+    }
+    else{
+      cout<<res<<"\n";
+      return;
+    }
+  }
+  cout<<res<<"\n";
 }
 
 int main(){
@@ -21,7 +43,7 @@ int main(){
   #endif
 
   int t = 1;
-  // cin>>t;
+  cin>>t;
   while(t--) f();
   
   return 0;

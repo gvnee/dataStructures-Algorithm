@@ -10,7 +10,13 @@ double PI = atan(1)*4;
 int temp;
 
 void f(){
-
+  string s;
+  cin>>s;
+  cout<<s[0];
+  for(int i = 1;i<s.size();i+=2){
+    cout<<s[i];
+  }
+  cout<<"\n";
 }
 
 int main(){
@@ -21,7 +27,7 @@ int main(){
   #endif
 
   int t = 1;
-  // cin>>t;
+  cin>>t;
   while(t--) f();
   
   return 0;
