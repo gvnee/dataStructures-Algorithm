@@ -10,13 +10,24 @@ double PI = atan(1)*4;
 int temp;
 
 void f(){
-  ll n;
+  int n;
   cin>>n;
-  if(sqrtl(n) - (ll)sqrtl(n) == 0){
-    cout<<(ll)sqrtl(n) - 1<<"\n";
-    return;
+  string s;
+  cin>>s;
+  int a[26];
+  memset(a, -1, sizeof(a));
+  for(int i = 0;i<s.size();i++){
+    int c = s[i] - 97;
+    // debug(i%2);
+    if(a[c] == -1){
+      a[c] = i%2;
+    }
+    else if(a[c] != i%2){
+      cout<<"NO\n";
+      return;
+    }
   }
-  cout<<(ll)sqrtl(n)<<"\n";
+  cout<<"YES\n";
 }
 
 int main(){

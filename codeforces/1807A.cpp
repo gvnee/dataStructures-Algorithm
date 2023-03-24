@@ -10,13 +10,10 @@ double PI = atan(1)*4;
 int temp;
 
 void f(){
-  ll n;
-  cin>>n;
-  if(sqrtl(n) - (ll)sqrtl(n) == 0){
-    cout<<(ll)sqrtl(n) - 1<<"\n";
-    return;
-  }
-  cout<<(ll)sqrtl(n)<<"\n";
+  int a, b, c;
+  cin>>a>>b>>c;
+  if(a+b == c) cout<<"+\n";
+  else cout<<"-\n";
 }
 
 int main(){
