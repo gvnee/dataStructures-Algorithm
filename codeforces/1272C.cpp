@@ -13,35 +13,23 @@ void f(){
   cin>>n>>k;
   string s;
   cin>>s;
-  vector<ll> dp[n+1];
-  for(int i = 1;i<=n;i++){
-    for(int j = 0;j<=n-i+1;j++){
-      dp[i].push_back(0);
-    }
-  }
-  char temp;
   ll res = 0;
-  for(int i = 0;i<k;i++){
-    cin>>temp;
-    for(int j = 1;j<=n;j++){
-      if(dp[1][j] == 1) continue;
-      dp[1][j] = temp == s[j-1];
-      res += dp[1][j];
-    }
+  ll dp[n];
+  char c;
+  ll freq[26] = {};
+  for(ll i = 0;i<k;i++){
+    cin>>c;
+    freq[c-'a'] = 1;
   }
-
-  // for(int i = 1;i<=n;i++){
-  //   for(int j = 1;j<=n;j++){
-  //     cout<<dp[i][j]<<" \n"[j==n];
-  //   }
-  // }
-  int f;
-  for(int i = 2;i<=n;i++){
-    for(int j = 1;j<=n-i+1;j++){
-      f = dp[i-1][j] && dp[i-1][j+1];
-      if(f) res++;
-      dp[i][j] = f;
+  dp[0] = freq[s[0] - 'a'];
+  res += dp[0];
+  for(ll i = 1;i<n;i++){
+    if(freq[s[i] - 'a'] == 0){
+      dp[i] = 0;
+      continue;
     }
+    dp[i] = dp[i-1]+1;
+    res += dp[i];
   }
 
   cout<<res<<"\n";

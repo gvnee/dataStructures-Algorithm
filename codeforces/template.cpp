@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-using ll = long long;
-
+#define ll long long
 #define debug(x) cerr<<#x<<": "<<(x)<<"\n"
 
 const int MOD = int(1e9) + 7;
