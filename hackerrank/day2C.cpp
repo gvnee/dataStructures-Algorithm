@@ -9,51 +9,44 @@ const int MOD = int(1e9) + 7;
 double PI = atan(1)*4;
 int temp;
 
-void f(){
-  ll k;
-  cin>>k;
-  ll arr[7];
-  ll cost[8];
-  for(int i = 0;i<7;i++) cin>>arr[i];
-
-  ll bestCost = INT64_MAX;
-  ll bestIndex;
-
-  for(ll i = 0;i<7;i++){
-    if(arr[i] == 0) continue;
-    ll cur = 1;
-    ll curIndex = i;
-    ll curCost = 0;
-    ll c = 0;
-    while(cur<=7){
-      curCost++;
-      if(arr[curIndex] == 1){
-        c += curCost;
-        cur++;
-      }
-      if(curIndex == 6) curIndex = 0;
-      else curIndex++;
-    }
-    if(c < bestCost){
-      bestIndex = i;
-      bestCost = c;
-    }
-  }
-  ll cur = 1;
-  ll curIndex = bestIndex;
-  ll curCost = 0;
-  while(cur<=7){
-    curCost++;
-    if(arr[curIndex] == 1){
-      cost[cur] = curCost;
+int getDays(int a[], int start, int oneC,int n){
+  int b[oneC+1];
+  int c = 1;
+  int cur = 1;
+  for(int i = start;i<=7;i++){
+    if(cur>oneC) break;
+    if(a[i] == 1){
+      b[cur] = c;
       cur++;
     }
-    if(curIndex == 6) curIndex = 0;
-    else curIndex++;
+    if(i>=7) i = 0;
+    c++;
   }
+  int res;
+  if(n%oneC == 0){
+    res = (n/oneC-1) * 7 + b[oneC];
+  }
+  else res = n/oneC * 7 + b[n%oneC];
+  return res;
+}
 
-  if(k%7==0) cout<<k/7*cost[7]<<"\n";
-  else cout<<k/7*cost[7] + cost[k%7]<<"\n";
+void f(){
+  ll n;
+  cin>>n;
+  int a[8];
+  int oneC = 0;
+  for(int i = 1;i<=7;i++){
+    cin>>a[i];
+    if(a[i] == 1) oneC++;
+  }
+  int res = INT_MAX;
+  for(int i = 1;i<=7;i++){
+    if(a[i] == 1){
+      temp = getDays(a, i, oneC, n);
+      res = min(res, temp);
+    }
+  }
+  cout<<res<<"\n";
 }
 
 int main(){
