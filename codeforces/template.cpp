@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long
@@ -15,9 +15,6 @@ void f(){
 int main(){
   
   ios_base::sync_with_stdio(false); cin.tie(nullptr);
-  #ifndef ONLINE_JUDGE
-    freopen("input.in", "r", stdin);
-  #endif
 
   int t = 1;
   // cin>>t;
