@@ -2,6 +2,7 @@
 using namespace std;
 
 #define ll long long
+#define sz(x) int((x).size())
 #define debug(x) cerr<<#x<<": "<<(x)<<"\n"
 
 const int MOD = int(1e9) + 7;
