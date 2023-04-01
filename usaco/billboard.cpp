@@ -10,7 +10,7 @@ double PI = atan(1)*4;
 int temp;
 
 void f(){
-  
+
 }
 
 int main(){
