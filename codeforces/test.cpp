@@ -10,11 +10,12 @@ double PI = atan(1)*4;
 int temp;
 
 void f(){
-  debug(2^1);
-  debug(2^2);
-  debug(2^2);
-  debug(2^3);
-  debug(3^1^0^0);
+   int n;
+   cin>>n;
+   vector<int> a(n);
+   
+
+   for(int x:a) cout<<x<<"\n";
 }
 
 int main(){

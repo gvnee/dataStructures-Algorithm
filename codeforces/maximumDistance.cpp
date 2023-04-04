@@ -9,23 +9,19 @@ const int MOD = int(1e9) + 7;
 double PI = atan(1)*4;
 int temp;
 
-struct Par{
-  ll a, b, c;
-};
-
 void f(){
-  ll n, m;
-  cin>>n>>m;
-  ll k[n];
+  ll n;
+  cin>>n;
+  vector<ll> x(n), y(n);
+  for(ll &i:x) cin>>i;
+  for(ll &i:y) cin>>i;
+  ll res = 0;
   for(int i = 0;i<n;i++){
-    cin>>k[i];
+    for(int j = i+1;j<n;j++){
+      res = max(res, (abs(x[i] - x[j]) * abs(x[i] - x[j]) + abs(y[i] - y[j]) * abs(y[i] - y[j])));
+    }
   }
-  vector<Par> p;
-  for(int i = 0;i<m;i++){
-    cin>>p[i].a>>p[i].b>>p[i].c;
-  } 
-
-  //(b-k)*(b-k)-4*a*c
+  cout<<res<<"\n";
 }
 
 int main(){
@@ -33,7 +29,7 @@ int main(){
   ios_base::sync_with_stdio(false); cin.tie(nullptr);
 
   int t = 1;
-  cin>>t;
+  // cin>>t;
   while(t--) f();
   
   return 0;
