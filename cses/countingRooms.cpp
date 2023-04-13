@@ -1,74 +1,29 @@
 #include<bits/stdc++.h>
 using namespace std;
-
 typedef long long ll;
-#define sz(x) int((x).size())
-#define debug(x) cerr<<#x<<": "<<(x)<<"\n"
-#define pb push_back
 
-int id[1000010];
-vector<int> adj[1000010];
-int cur = 1;
-void bfs(int a){
-  if(adj[a].empty()) return;
-  queue<int> q;
-  q.push(a);
-  while(!q.empty()){
-    int s = q.front(); q.pop();
-    id[s] = cur;
-    for(int u:adj[s]){
-      if(id[u] == cur) continue;
-      id[u] = cur;
-      q.push(u);
-    }
-  }
+string a[1000];
+int n, m;
+
+bool valid(int i, int j){
+  return i>=0 && j>=0 && i<n && j<m && a[i][j] == '.';
 }
 
-void f(){
-
-  memset(id, -1, sizeof(id));
-  
-  int n, m;
-  cin>>n>>m;
-  string arr[n];
-  for(int i = 0;i<n;i++){
-    cin>>arr[i];
-  }
-
-  vector<int> fl;
-  for(int i = 0;i<n;i++){
-    for(int j = 0;j<m;j++){
-      if(arr[i][j] == '.'){
-        fl.pb(i*m + j);
-        if(j != 0 && arr[i][j-1] == '.'){
-          adj[i*m+j].pb(i*m+j-1);
-        }
-        if(i != 0 && arr[i-1][j] == '.'){
-          adj[i*m+j].pb((i-1)*m+j);
-        }
-        if(j < m - 1 && arr[i][j+1] == '.'){
-          adj[i*m+j].pb(i*m+j+1);
-        }
-        if(i < n - 1 && arr[i+1][j] == '.'){
-          adj[i*m+j].pb((i+1)*m+j);
-        }
-      }
-    }
-  }
-
-  for(auto i:fl){
-    if(id[i] == -1){
-      bfs(i);
-      cur++;
-    }
-  }
-  cout<<cur-1<<"\n";
+void dfs(int i, int j){
+  a[i][j] = '#';
+  if(valid(i, j-1)) dfs(i, j-1);
+  if(valid(i, j+1)) dfs(i, j+1);
+  if(valid(i-1, j)) dfs(i-1, j);
+  if(valid(i+1, j)) dfs(i+1, j);
 }
 
 int main(){
-  ios_base::sync_with_stdio(0); cin.tie(0);
-  int t = 1;
-  // cin>>t;
-  while(t--) f();
+  cin>>n>>m;
+  for(int i = 0;i<n;i++) cin>>a[i];
+  int res = 0;
+  for(int i = 0;i<n;i++)
+    for(int j = 0;j<m;j++)
+      if(valid(i, j)) dfs(i, j), res++;
+  cout<<res<<"\n";
   return 0;
 }
