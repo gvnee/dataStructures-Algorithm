@@ -1,101 +1,84 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#define ll long long
-#define sz(x) int((x).size())
-#define debug(x) cerr<<#x<<": "<<(x)<<"\n"
+typedef long long ll;
+#define pb push_back
 
-const int mxm = 100001;
-vector<int> c[mxm+1];
-vector<int> fr[mxm+1];
-int cod[mxm+1];
+const int mxn = 1e5+10;
+int n, m, k;
 
-void bfs(int a, int id){
-  queue<int> q;
-  if(c[a].empty()) return;
-  q.push(a);
-  while(!q.empty()){
-    int s = q.front(); q.pop();
-    for(int u:c[s]){
-      if(cod[u] == id) continue;
-      cod[u] = id;
-      q.push(u);
-    }
-  }
+vector<int> fr[mxn]; // friends
+vector<int> c[mxn]; // connections
+
+set<int> s;
+
+int id[mxn]; // component IDs
+
+ll cur = 0; // current ID
+
+void dfs(int a, int newId){ // depth first search
+  if(id[a] == newId) return;
+  id[a] = newId;
+  for(int i:c[a])
+    dfs(i, newId);
 }
 
-ll curId = 0;
 void preProcess(){
-  memset(cod, -1, sizeof(cod));
-  for(int i = 0;i<=mxm;i++){
-    if(cod[i] == -1 && !c[i].empty()){
-      cod[i] = curId;
-      bfs(i, curId);
-      curId++;
-    }
-  }
+  memset(id, -1, sizeof(id)); // id = {-1, -1, -1, -1, ...}
+  for(int i:s)
+    if(id[i] == -1)
+      dfs(i, cur), cur++;
 }
 
-void f(){
-  int n, m, k;
+int main(){
   cin>>n>>m>>k;
   int a, b;
   for(int i = 0;i<m;i++){
     cin>>a>>b;
-    fr[a].push_back(b);
-    fr[b].push_back(a);
+    fr[a].pb(b);
+    fr[b].pb(a);
   }
   for(int i = 0;i<k;i++){
     cin>>a>>b;
-    c[a].push_back(b);
-    c[b].push_back(a);
+    c[a].pb(b);
+    c[b].pb(a);
+    s.insert(a);
+    s.insert(b);
   }
   preProcess();
-  int q;
-  cin>>q;
+
+  int q; cin>>q;
   char op;
   while(q--){
     cin>>op;
     if(op == 'F'){
       cin>>a>>b;
-      fr[a].push_back(b);
-      fr[b].push_back(a);
+      fr[a].pb(b);
+      fr[b].pb(a);
     }
     else if(op == 'T'){
       cin>>a>>b;
-      c[a].push_back(b);
-      c[b].push_back(a);
-      if(cod[a] == -1 && cod[b] == -1){
-        curId++;
-        cod[a] = curId;
-        cod[b] = curId;
-        curId++;
+      c[a].pb(b);
+      c[b].pb(a);
+
+      if(id[a] == -1 && id[b] == -1){
+        id[a] = cur;
+        id[b] = cur;
+        cur++;
       }
-      if(cod[a] == -1) cod[a] = cod[b];
-      else if(cod[b] == -1) cod[b] = cod[a];
-      else bfs(a, max(cod[a], cod[b]));
+      else if(id[a] == -1) id[a] = id[b];
+      else if(id[b] == -1) id[b] = id[a];
+      else dfs(a, max(id[a], id[b]));
     }
-    else{
+    else {
       cin>>a;
+      
       int res = 0;
-      if(cod[a] == -1 || fr[a].empty() || c[a].empty()){
-        cout<<0<<"\n";
-        continue;
-      }
-      for(int it:fr[a]){
-        if(cod[it] == cod[a]){
-          res++;
-        }
-      }
+      for(int i:fr[a])
+        if(id[a] == id[i]) res++;
       cout<<res<<"\n";
     }
   }
-}
 
-int main(){
-  ios_base::sync_with_stdio(0); cin.tie(0);
-  int t = 1;
-  // cin>>t;
-  while(t--) f();
   return 0;
 }
