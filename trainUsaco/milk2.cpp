@@ -1,7 +1,7 @@
 /*
 ID: gvne
 PROG: milk2
-LANG: C++                 
+LANG: C++
 */
 #include<bits/stdc++.h>
 #include<fstream>
