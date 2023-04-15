@@ -4,30 +4,28 @@ using namespace std;
 #define ll long long
 #define sz(x) int((x).size())
 #define debug(x) cerr<<#x<<": "<<(x)<<"\n"
-#define pb push_back
 
 void f(){
   int n;
   cin>>n;
-  int a, b;
-  vector<pair<int, int>> v;
+  int a[n], b[n];
+  int t[1001] = {};
   for(int i = 0;i<n;i++){
-    cin>>a>>b;
-    v.pb({a, b});
-  }
-
-  int res = 0;
-  for(auto it:v){
-    bool arr[1001] = {};
-    for(int i = 0;i<sz(v);i++){
-      if(v[i] == it) continue;
-      for(int j = v[i].first;j<v[i].second;j++){
-        arr[j] = true;
-      }
+    cin>>a[i]>>b[i];
+    for(int j = a[i];j<b[i];j++){
+      t[j]++;
     }
+  }
+  int res = -1;
+  for(int i = 0;i<n;i++){
     int cur = 0;
-    for(int i = 0;i<=1000;i++){
-      if(arr[i]) cur++;
+    for(int j = 0;j<=1000;j++){
+      if(a[i]<=j && j<b[i]){
+        if(t[j]>1) cur++;
+      }
+      else if(t[j] > 0){
+        cur++;
+      }
     }
     res = max(res, cur);
   }
