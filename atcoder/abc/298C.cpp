@@ -8,43 +8,19 @@ typedef long long ll;
 
 const int mod = 998244353;
 const string smod = "998244353";
+
 string s = "1";
 
-int conv(string s){
-  int a = 0;
-  for(int i = sz(s) - 1;i>=0;i--){
-    a += s[i] - '0';
-    a *= 10;
-  }
-  assert();
-  return a;
-}
-
-void add(char a){
-  s += a;
-  // cout<<s<<"\n";
-  int temp = conv(s);
-  if(sz(s) > sz(smod)){
-    temp %= mod;
-    s = to_string(temp);
-  }
+bool isGreater(){
+  if(s == smod) return true;
+  else if(sz(s) > sz(smod)) return true;
   else if(sz(s) == sz(smod)){
-    bool g = true;
     for(int i = 0;i<sz(s);i++){
-      if(s[i] > smod[i]){
-        g = true;
-        break;
-      }
-      else if(s[i] < smod[i]){
-        g = false;
-        break;
-      }
-    }
-    if(g){
-      temp %= mod;
-      s = to_string(temp);
+      if(s[i] > smod[i]) return true;
+      else if(s[i] < smod[i]) return false;
     }
   }
+  return false;
 }
 
 void f(){
@@ -53,19 +29,26 @@ void f(){
   if(op == 1){
     char a;
     cin>>a;
-    add(a);
+    s += a;
   }
   else if(op == 2){
-    s = s.substr(1, sz(s)+10);
+    if(sz(s) == 1) s = "";
+    else if(sz(s) > 1)
+      s = s.substr(1, sz(s));
   }
-  else{
+  else {
+    if(isGreater()){
+      ll temp = stol(s);
+      temp -= mod;
+      s = to_string(temp);
+    }
     cout<<s<<"\n";
   }
 }
 
 int main(){
   ios_base::sync_with_stdio(0); cin.tie(0);
-  int t;
+  int t = 1;
   cin>>t;
   while(t--) f();
   return 0;
