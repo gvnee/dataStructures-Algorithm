@@ -1,8 +1,8 @@
-/*
+*
 ID: gvne
 PROG: combo
 LANG: C++
-*/
+*//
 #include<bits/stdc++.h>
 using namespace std;
 
