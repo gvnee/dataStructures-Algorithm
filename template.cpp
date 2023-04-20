@@ -7,7 +7,7 @@ typedef long long ll;
 #define pb push_back
 
 void f(){
-
+  
 }
 
 int main(){
