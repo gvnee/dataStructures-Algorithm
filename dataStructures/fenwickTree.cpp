@@ -3,51 +3,51 @@ using namespace std;
 
 #define ll long long
 
-const int MxN = 200010;
-
-ll tree[MxN];
+const int mxn = 10000;
+ll tree[mxn+1];
 int n;
 
 ll sum(int i){
-  ll s = 0LL;
-  while(i >= 1){
+  ll s = 0;
+  while(i>0){
     s += tree[i];
     i &= ~(i&-i);
   }
   return s;
 }
 
-void add(int i, ll v){
+void add(int i, int v){
   while(i<=n){
     tree[i] += v;
-    i += i & -i;
+    i += i&-i;
   }
 }
 
 int main(){
-  freopen("input.in", "r", stdin);
   int q;
   cin>>n>>q;
-  vector<ll> a(n+1);
+  int arr[n+1];
   for(int i = 1;i<=n;i++){
-    cin>>a[i];
-    tree[i] = a[i];
+    cin>>arr[i];
+    tree[i] = arr[i];
   }
-  //construct
   for(int i = 1;i<=n;i++){
-    int parent = i + (i & -i);
-    if(parent <= n) tree[parent] += tree[i];
+    int parent = i+(i&-i);
+    if(parent<=n) tree[parent] += tree[i];
+  }
+  int v, i, l, r;
+  while(q--){
+    int op; cin>>op;
+    if(op == 1){
+      cin>>i>>v;
+      add(i, v - arr[i]);
+      arr[i] = v;
+    }
+    else{
+      cin>>l>>r;
+      cout<<sum(r) - sum(l-1)<<"\n";
+    }
   }
 
-  while(q--){
-    ll op, l, r;
-    cin>>op>>l>>r;
-    if(op == 1){
-      add(l, r - a[l]);
-      a[l] = r;
-    }
-    
-    else cout<<sum(r) - sum(l-1)<<"\n";
-  }
   return 0;
 }
