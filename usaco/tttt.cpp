@@ -64,7 +64,7 @@ void f(){
 int main(){
   
   ios_base::sync_with_stdio(false); cin.tie(nullptr);
-  freopen("input.in", "r", stdin);
+  // freopen("tttt.in", "r", stdin);
   // freopen("tttt.out", "w", stdout);
   int t = 1;
   // cin>>t;

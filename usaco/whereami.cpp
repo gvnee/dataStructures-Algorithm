@@ -6,34 +6,32 @@ typedef long long ll;
 #define debug(x) cerr<<#x<<": "<<(x)<<"\n"
 #define pb push_back
 
+// ABCDABC
+// A B C D A B C
+// AB BC CD AB BC
+// ABC BCD
+
 void f(){
   int n;
   cin>>n;
   string s;
   cin>>s;
-  map<string, int> m;
-  int res = INT_MAX;
-  for(int i = 0;i<n;i++){
-    for(int j = i;j<n;j++){
-      string cur = "";
-      for(int k = i;k<=j;k++){
-        cur+=s[k];
-      }
-      m[cur]++;
+  for(int i = 1;i<=n;i++){
+    unordered_set<string> st;
+    for(int j = 0;j<=n-i;j++){
+      st.insert(s.substr(j, i));
+    }
+    if(sz(st) == n-i+1){
+      cout<<i<<"\n";
+      return;
     }
   }
-
-  for(auto &x:m){
-    if(x.second == 1){
-      res = min(res, sz(x.first));
-    }
-  }
-  cout<<res+1<<"\n";
-  
 }
 
 int main(){
   ios_base::sync_with_stdio(0); cin.tie(0);
+  freopen("whereami.in", "r", stdin);
+  freopen("whereami.out", "w", stdout);
   int t = 1;
   // cin>>t;
   while(t--) f();
