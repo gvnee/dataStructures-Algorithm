@@ -1,19 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#define ll long long
+typedef long long ll;
 #define sz(x) int((x).size())
 #define debug(x) cerr<<#x<<": "<<(x)<<"\n"
+#define pb push_back
 
-const int mxn = 200010;
+const int MxN = 2e5+1;
 int n;
-ll tree[mxn];
+ll tree[MxN];
 
 ll sum(int i){
   ll s = 0LL;
-  while(i!=0){
+  while(i!=0){ 
     s += tree[i];
-    i&=~(i&-i);
+    i &= ~(i&-i);
   }
   return s;
 }
@@ -28,10 +29,10 @@ void add(int i, int v){
 void f(){
   int q;
   cin>>n>>q;
-  ll arr[n+1];
-  for(int i = 1;i<=n;i++){
-    cin>>arr[i];
-    tree[i] = arr[i];
+  ll a[n+1];
+  for(int i=1;i<=n;i++){
+    cin>>a[i];
+    tree[i] = a[i];
   }
 
   for(int i = 1;i<=n;i++){
@@ -39,14 +40,18 @@ void f(){
     if(parent<=n) tree[parent] += tree[i];
   }
 
+  int op, l, r, i, v;
   while(q--){
-    ll q, l, r;
-    cin>>q>>l>>r;
-    if(q == 1){
-      add(l, r - arr[l]);
-      arr[l] = r;
+    cin>>op;
+    if(op == 1){
+      cin>>i>>v;
+      add(i, v - a[i]);
+      a[i] = v;
     }
-    else cout<<sum(r) - sum(l-1)<<"\n";
+    else{
+      cin>>l>>r;
+      cout<<sum(r) - sum(l-1)<<"\n";
+    }
   }
   
 }
