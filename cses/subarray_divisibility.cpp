@@ -7,23 +7,15 @@ typedef long long ll;
 #define pb push_back
 
 void f(){
-  int n, x;
-  cin>>n>>x;
-  ll a[n+1] ={};
+  int n;
+  cin>>n;
+  ll a[n+1] = {};
   for(int i = 1;i<=n;i++){
     cin>>a[i];
     a[i] += a[i-1];
+    a[i] %= n;
+    cout<<a[i]<<" \n"[i==n];
   }
-
-  unordered_map<ll, ll> m;
-  m[0] = 1;
-  ll res = 0;
-  for(int i = 1;i<=n;i++){
-    res += m[a[i] - x];
-    m[a[i]]++;
-  }
-  
-  cout<<res<<"\n";
 }
 
 int main(){
