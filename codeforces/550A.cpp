@@ -8,19 +8,27 @@ typedef long long ll;
 void f(){
   string s;
   cin>>s;
-  bool ab = 0, ba = 0;
   for(int i = 0;i<sz(s)-1;i++){
-    if(!ab && s[i] == 'A' && s[i+1] == 'B'){
-      ab = true;
-      i++;
+    if(s.substr(i, 2) == "AB"){
+      for(int j = i+2;j<sz(s)-1;j++){
+        if(s.substr(j, 2) == "BA"){
+          cout<<"YES\n";
+          return;
+        }
+      }
+      if(s[i+2] != 'A') break;
     }
-    else if(!ba && s[i] == 'B' && s[i+1] == 'A'){
-      ba = true;
-      i+=2;
+    else if(s.substr(i, 2) == "BA"){
+      for(int j = i+2;j<sz(s)-1;j++){
+        if(s.substr(j, 2) == "AB"){
+          cout<<"YES\n";
+          return;
+        }
+      }
+      if(s[i+2] != 'B') break;
     }
   }
-  if(ab && ba) cout<<"YES\n";
-  else cout<<"NO\n";
+  cout<<"NO\n";
 }
 
 int main(){
