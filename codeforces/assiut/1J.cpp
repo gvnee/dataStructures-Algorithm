@@ -3,10 +3,16 @@ using namespace std;
 
 typedef long long ll;
 #define sz(x) int((x).size())
+#define debug(x) cerr<<#x<<": "<<(x)<<"\n"
 #define pb push_back
 
 void f(){
-  
+  int a, b;
+  cin>>a>>b;
+  if(a % b==0 || b%a==0){
+    cout<<"Multiples\n";
+  }
+  else cout<<"No Multiples\n";
 }
 
 int main(){
@@ -15,4 +21,4 @@ int main(){
   // cin>>t;
   while(t--) f();
   return 0;
-}
+} 

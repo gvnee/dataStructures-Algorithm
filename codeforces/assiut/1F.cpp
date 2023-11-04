@@ -3,10 +3,13 @@ using namespace std;
 
 typedef long long ll;
 #define sz(x) int((x).size())
+#define debug(x) cerr<<#x<<": "<<(x)<<"\n"
 #define pb push_back
 
 void f(){
-  
+  ll a, b;
+  cin>>a>>b;
+  cout<<(a%10) + (b%10)<<"\n";
 }
 
 int main(){

@@ -3,10 +3,23 @@ using namespace std;
 
 typedef long long ll;
 #define sz(x) int((x).size())
+#define debug(x) cerr<<#x<<": "<<(x)<<"\n"
 #define pb push_back
 
 void f(){
-  
+  int n;
+  ll longLong;
+  char c;
+  float f;
+  double d;
+
+  cin>>n>>longLong>>c>>f>>d;
+
+  cout<<n<<"\n";
+  cout<<longLong<<"\n";
+  cout<<c<<"\n";
+  cout<<f<<"\n";
+  cout<<d<<"\n";
 }
 
 int main(){

@@ -3,10 +3,14 @@ using namespace std;
 
 typedef long long ll;
 #define sz(x) int((x).size())
+#define debug(x) cerr<<#x<<": "<<(x)<<"\n"
 #define pb push_back
 
 void f(){
-  
+  string a, b, c, d;
+  cin>>a>>b>>c>>d;
+  if(b == d) cout<<"ARE Brothers\n";
+  else cout<<"NOT\n";
 }
 
 int main(){

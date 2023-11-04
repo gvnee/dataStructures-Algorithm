@@ -3,10 +3,15 @@ using namespace std;
 
 typedef long long ll;
 #define sz(x) int((x).size())
+#define debug(x) cerr<<#x<<": "<<(x)<<"\n"
 #define pb push_back
 
 void f(){
-  
+  ll x, y;
+  cin>>x>>y;
+  printf("%lld + %lld = %lld\n", x, y, x+y);
+  printf("%lld * %lld = %lld\n", x, y, x*y);
+  printf("%lld - %lld = %lld\n", x, y, x-y);
 }
 
 int main(){

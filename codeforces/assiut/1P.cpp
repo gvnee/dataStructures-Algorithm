@@ -3,10 +3,15 @@ using namespace std;
 
 typedef long long ll;
 #define sz(x) int((x).size())
+#define debug(x) cerr<<#x<<": "<<(x)<<"\n"
 #define pb push_back
 
 void f(){
-  
+  string s;
+  cin>>s;
+  int a = s[0] - '0';
+  if(a&1) cout<<"ODD";
+  else cout<<"EVEN";
 }
 
 int main(){

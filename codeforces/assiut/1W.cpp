@@ -3,10 +3,21 @@ using namespace std;
 
 typedef long long ll;
 #define sz(x) int((x).size())
+#define debug(x) cerr<<#x<<": "<<(x)<<"\n"
 #define pb push_back
 
 void f(){
+  int a, b, c;
+  char o, e;
+  cin>>a>>o>>b>>e>>c;
+  int res = 0;
+
+  if(o == '+') res = a+b;
+  else if(o == '-') res = a-b;
+  else res = a*b;
   
+  if(res == c) cout<<"Yes\n";
+  else cout<<res<<"\n";
 }
 
 int main(){

@@ -3,10 +3,18 @@ using namespace std;
 
 typedef long long ll;
 #define sz(x) int((x).size())
+#define debug(x) cerr<<#x<<": "<<(x)<<"\n"
 #define pb push_back
 
 void f(){
-  
+  char c;
+  cin>>c;
+  if(c>='A'){
+    cout<<"ALPHA\n";
+    if(c>'Z') cout<<"IS SMALL\n";
+    else cout<<"IS CAPITAL\n";
+  }
+  else cout<<"IS DIGIT\n";
 }
 
 int main(){
