@@ -18,6 +18,25 @@ void f(){
   }
 
   sort(v.begin(), v.end());
+  set<int> removed;
+  int l = 0, r = sz(v) - 1;
+  while(sz(removed) < 3){
+    if(removed.find(v[l].second) && removed.find(v[r].second)){
+      l++;
+      r--;
+    }
+    else if(removed.find(v[l].second)){
+      v.erase(v.begin() + r);
+      r--;
+    }
+    else if(remoed.find(v[r].second)){
+      v.erase(v.begin() + l);
+      l++;
+    }
+    else if(v[l].first < v[r].first){
+      v.erase(v.begin())
+    }
+  }
   
 }
 
