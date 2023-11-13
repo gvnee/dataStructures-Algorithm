@@ -6,14 +6,15 @@ typedef long long ll;
 #define pb push_back
 
 void f(){
-  int n, q, l, r;
+  int n = 1, q, l, r;
   cin>>n>>q;
-  vector<pair<int, bool>> a;
+  vector<pair<int, bool> > a;
   for(int i = 0;i<q;i++){
     cin>>l>>r;
     if(l>r) swap(l, r);
     n = max(n, r);
-    l--, r--;
+    l--;
+    r--;
     a.pb({l, 0});
     a.pb({r, 1});
   }
@@ -37,8 +38,6 @@ void f(){
 
 int main(){
   cin.tie(0); ios_base::sync_with_stdio(0);
-  // freopen("stacking.in", "r", stdout);
-  // freopen("stacking.out", "w", stdout);
   int t = 1;
   // cin>>t;
   while(t--) f();
