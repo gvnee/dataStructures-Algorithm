@@ -12,6 +12,7 @@ ll sum(int i){
   while(i>0){
     s += tree[i];
     i &= ~(i&-i);
+    // i -= i&-i;
   }
   return s;
 }

@@ -14,25 +14,24 @@ int res[MXN] = {};
 
 vpi merge(vpi a, vpi b){
   vpi c;
-  int ai = 0, bi = 0;
-  int aa = 0;
+  int ai = 0, bi = 0, bb = 0;
 
   while(ai < sz(a) && bi < sz(b)){
-    if(a[ai].ff > b[bi].ff){
+    if(a[ai].ff < b[bi].ff){
       c.pb(b[bi]);
-      aa++;
+      bb++;
       bi++;
     }
     else{
-      res[a[ai].ss] += aa;
       c.pb(a[ai]);
-      bi++;
+      res[a[ai].ss]+=bb;
+      ai++;
     }
   }
 
   while(ai<sz(a)){
-    res[a[ai].ss] += aa;
     c.pb(a[ai]);
+    res[a[ai].ss]+=bb;
     ai++;
   }
   while(bi<sz(b)){
@@ -40,13 +39,13 @@ vpi merge(vpi a, vpi b){
     bi++;
   }
 
-  cout<<"{";
-  for(auto i:a) cout<<i.ff<<" ";
-  cout<<"} + {";
-  for(auto i:b) cout<<i.ff<<" ";
-  cout<<"} -> {";
-  for(auto i:c) cout<<i.ff<<" ";
-  cout<<"}\n";
+  // cout<<"{";
+  // for(auto i:a) cout<<i.ff<<" ";
+  // cout<<"} + {";
+  // for(auto i:b) cout<<i.ff<<" ";
+  // cout<<"} -> {";
+  // for(auto i:c) cout<<i.ff<<" ";
+  // cout<<"}\n";
   
   return c;
 }
