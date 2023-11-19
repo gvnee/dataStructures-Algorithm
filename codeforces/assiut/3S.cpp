@@ -5,22 +5,23 @@ typedef long long ll;
 #define sz(x) int((x).size())
 #define pb push_back
 
+const int MXN = 1e5+1;
+
 void f(){
-  int n;
-  cin>>n;
-  int a[n];
+  int n, m;
+  cin>>n>>m;
+  bool b[MXN] = {};
   for(int i = 0;i<n;i++){
-    cin>>a[i];
+    for(int j = 0;j<m;j++){
+      int t;
+      cin>>t;
+      b[t] = true;
+    }
   }
-  sort(a, a+n);
-  ll mx = LLONG_MIN, mn = LLONG_MAX;
-  for(int i = 0;i<n/2;i++){
-    ll cur = a[i] + a[n-i-1];
-    mx = max(mx, cur);
-    mn = min(mn, cur);
-  }
-  cout<<mx<<"\n"; 
-  cout<<mn<<"\n";
+  int x;
+  cin>>x;
+  if(b[x]) cout<<"will not take number\n";
+  else cout<<"will take number\n";
 }
 
 int main(){

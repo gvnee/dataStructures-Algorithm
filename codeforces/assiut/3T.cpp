@@ -8,19 +8,16 @@ typedef long long ll;
 void f(){
   int n;
   cin>>n;
-  int a[n];
+  ll a = 0, b = 0;
   for(int i = 0;i<n;i++){
-    cin>>a[i];
+    for(int j = 0;j<n;j++){
+      int t;
+      cin>>t;
+      if(i == j) a += t;
+      if(i + j == n-1) b += t;
+    }
   }
-  sort(a, a+n);
-  ll mx = LLONG_MIN, mn = LLONG_MAX;
-  for(int i = 0;i<n/2;i++){
-    ll cur = a[i] + a[n-i-1];
-    mx = max(mx, cur);
-    mn = min(mn, cur);
-  }
-  cout<<mx<<"\n"; 
-  cout<<mn<<"\n";
+  cout<<abs(a-b)<<"\n";
 }
 
 int main(){

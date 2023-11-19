@@ -9,24 +9,24 @@ void f(){
   int n;
   cin>>n;
   int a[n];
-  for(int i = 0;i<n;i++){
+  a[0] = INT_MIN;
+  for(int i = 1;i<=n;i++){
     cin>>a[i];
   }
-  sort(a, a+n);
-  ll mx = LLONG_MIN, mn = LLONG_MAX;
-  for(int i = 0;i<n/2;i++){
-    ll cur = a[i] + a[n-i-1];
-    mx = max(mx, cur);
-    mn = min(mn, cur);
+  ll res = n;
+  for(int i = 1;i<=n;i++){
+    for(int j = i+1;j<=n;j++){
+      if(a[j] < a[j-1]) break;
+      res++;
+    }
   }
-  cout<<mx<<"\n"; 
-  cout<<mn<<"\n";
+  cout<<res<<"\n";
 }
 
 int main(){
   cin.tie(0); ios_base::sync_with_stdio(0);
   int t = 1;
-  // cin>>t;
+  cin>>t;
   while(t--) f();
   return 0;
 }

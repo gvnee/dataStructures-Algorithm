@@ -6,21 +6,22 @@ typedef long long ll;
 #define pb push_back
 
 void f(){
-  int n;
-  cin>>n;
-  int a[n];
+  int n, q;
+  cin>>n>>q;
+  vector<int> a(n);
   for(int i = 0;i<n;i++){
     cin>>a[i];
   }
-  sort(a, a+n);
-  ll mx = LLONG_MIN, mn = LLONG_MAX;
-  for(int i = 0;i<n/2;i++){
-    ll cur = a[i] + a[n-i-1];
-    mx = max(mx, cur);
-    mn = min(mn, cur);
+  sort(a.begin(), a.end());
+  while(q--){
+    int x;
+    cin>>x;
+    bool found = binary_search(a.begin(), a.end(), x);
+    if(!found){
+      cout<<"not found\n";
+    }
+    else cout<<"found\n";
   }
-  cout<<mx<<"\n"; 
-  cout<<mn<<"\n";
 }
 
 int main(){

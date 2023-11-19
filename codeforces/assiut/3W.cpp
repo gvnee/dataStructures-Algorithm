@@ -6,21 +6,19 @@ typedef long long ll;
 #define pb push_back
 
 void f(){
-  int n;
-  cin>>n;
-  int a[n];
+  int n, m;
+  cin>>n>>m;
+  int a[n][m];
   for(int i = 0;i<n;i++){
-    cin>>a[i];
+    for(int j = 0;j<m;j++){
+      cin>>a[i][j];
+    }
   }
-  sort(a, a+n);
-  ll mx = LLONG_MIN, mn = LLONG_MAX;
-  for(int i = 0;i<n/2;i++){
-    ll cur = a[i] + a[n-i-1];
-    mx = max(mx, cur);
-    mn = min(mn, cur);
+  for(int i = 0;i<n;i++){
+    for(int j = m-1;j>=0;j--){
+      cout<<a[i][j]<<" \n"[j==0];
+    }
   }
-  cout<<mx<<"\n"; 
-  cout<<mn<<"\n";
 }
 
 int main(){
