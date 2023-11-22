@@ -12,23 +12,16 @@ void f(){
     cin>>a[i];
   }
   ll res = 0;
-  ll prev = a[n];
   for(int i = n-1;i>=1;i--){
-    ll cur = a[i];
-    if(cur <= prev){
-      prev = cur;
-      continue;
-    }
-    ll whole = cur / prev - 1;
-    res += whole;
-    cur -= whole * prev;
-    if(cur > prev){
-      res++;
-      cur /= 2;
-      prev = cur;
+    if(a[i] <= a[i+1]) continue;
+    if(a[i] % a[i+1] == 0){
+      res += a[i] / a[i+1] - 1;
+      a[i] = a[i+1];
     }
     else{
-      if(cur != 0) prev = cur;
+      ll k = a[i] / a[i+1] + 1;
+      a[i] /= k;
+      res += k-1;
     }
   }
   cout<<res<<"\n";
