@@ -7,37 +7,21 @@ typedef long long ll;
 #define S second
 
 void f(){
-  int n; cin>>n;
-  vector<pair<int, int>> a;
-  int t;
-  int mx = INT_MIN, mxi = 0;
-  for(int i = 0;i<n;i++){
-    cin>>t;
-    a.pb({t, i});
-    if(t >= mx){
-      mx = t;
-      mxi = i;
-    }
+  int n;
+  cin>>n;
+  int a[n+2], pre[n+2] = {}, suf[n+2] = {};
+  for(int i = 1;i<=n;i++){
+    cin>>a[i];
+    pre[i] = max(pre[i-1], a[i]+n-i);
   }
-  
-  bool visited[n] = {};
-  priority_queue<pair<int, int>> q;
-  q.push({-mx, mxi});
-  ll res = mx;
-  ll cur = mx;
-  while(!q.empty()){
-    auto c = q.top(); q.pop();
-    visited[c.S] = true;
-    if(c.S-1>=0 &&!visited[c.S-1]) q.push({-a[c.S-1].first, a[c.S-1].S});
-    if(c.S+1<n && !visited[c.S+1]) q.push({-a[c.S+1].first, a[c.S+1].S});
-    int A = -c.first;
-    // cout<<A<<" ";
-    if(A > cur){
-      res += A - cur;
-      cur = A;
-    }
-    cur--;
+  for(int i = n;i>=1;i--){
+    suf[i] = max(suf[i+1], a[i]+i-1);
   }
+  int res = INT_MAX;
+  for(int i = 1;i<=n;i++){
+    res = min(res, max({a[i], pre[i-1], suf[i+1]}));
+  }
+
   cout<<res<<"\n";
 }
 

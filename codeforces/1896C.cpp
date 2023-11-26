@@ -15,42 +15,34 @@ void f(){
   int n, x;
   cin>>n>>x;
   vector<pair<int, int>> a;
-  int b[n], res[n];
+  int b[n], r[n];
   for(int i = 0;i<n;i++){
     int t;
     cin>>t;
     a.pb({t, i});
   }
   for(int i = 0;i<n;i++) cin>>b[i];
-
-  sort(a.rbegin(), a.rend());
+  sort(a.begin(), a.end());
   sort(b, b+n);
 
-  int beauty = 0, ai = n-1;
-
-  for(int i = 0;i<n;i++){
-    if(beauty < x){
-      if(a[i].F > b[i]){
-        beauty++;
-        res[a[i].S] = b[i];
-      }
-      else {
-        cout<<"NO\n";
-        return;
-      }
-    }
-    else{
-      if(a[ai].F > b[i]){
-        cout<<"NO\n";
-        return;
-      }
-      res[a[ai].S] = b[i];
-      ai--;
-    }
+  for(int i = 0;i<x;i++){
+    r[a[n-x+i].S] = b[i];
   }
-  cout<<"YES\n";
-  for(int i = 0;i<n;i++) cout<<res[i]<<" ";
-  cout<<"\n";
+  for(int i = x;i<n;i++){
+    r[a[i-x].S] = b[i];
+  }
+  int beauty = 0;
+  sort(a.begin(), a.end(), comp);
+  for(int i = 0;i<n;i++){
+    if(a[i].F > r[i]) beauty++;
+  }
+
+  if(beauty == x){
+    cout<<"YES\n";
+    for(int i = 0;i<n;i++) cout<<r[i]<<" ";
+    cout<<"\n";
+  }
+  else cout<<"NO\n";
 }
 
 int main(){
