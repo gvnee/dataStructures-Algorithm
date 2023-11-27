@@ -1,16 +1,23 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#define all(x) x.begin(), x.end()
+#define all(x) (x.begin(), x.end())
 #define sz(x) int((x).size())
-#define pi pair<int, int>
+#define pii pair<int, int>
 typedef long long ll;
 #define pb push_back
 #define S second
 #define F first
 
 void f(){
-  
+  int n; cin>>n;
+  double a;
+  double s = 0;
+  for(int i = 0;i<n;i++){
+    cin>>a;
+    s += a;
+  }
+  printf("%.2f\n", s/n);
 }
 
 int main(){

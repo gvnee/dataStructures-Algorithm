@@ -10,7 +10,22 @@ typedef long long ll;
 #define F first
 
 void f(){
-  
+  int s, n; cin>>s>>n;
+  vector<pi> a;
+  for(int i = 0;i<n;i++){
+    int h, b;
+    cin>>h>>b;
+    a.pb({h, b});
+  }
+  sort(all(a));
+  for(auto x:a){
+    if(x.F>=s){
+      cout<<"NO";
+      return;
+    }
+    s += x.S;
+  }
+  cout<<"YES";
 }
 
 int main(){

@@ -1,16 +1,23 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#define all(x) x.begin(), x.end()
+#define all(x) (x.begin(), x.end())
 #define sz(x) int((x).size())
-#define pi pair<int, int>
+#define pii pair<int, int>
 typedef long long ll;
 #define pb push_back
 #define S second
 #define F first
 
 void f(){
-  
+  int a, b;
+  cin>>a>>b;
+  for(int i = a;i<=1e9;i+=17){
+    if(i%100 == b){
+      cout<<i % 1700<<"\n";
+      return;
+    }
+  }
 }
 
 int main(){

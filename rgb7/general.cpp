@@ -10,7 +10,24 @@ typedef long long ll;
 #define F first
 
 void f(){
-  
+  int n;
+  cin>>n;
+  int a[n];
+  int mx = INT_MIN, mn = INT_MAX;
+  int mxi = 0, mni = 0;
+  for(int i = 0;i<n;i++){
+    cin>>a[i];
+    if(a[i] > mx){
+      mx = a[i];
+      mxi = i;
+    }
+    if(a[i] <= mn){
+      mn = a[i];
+      mni = i;
+    }
+  }
+  if(mxi > mni) mni++;
+  cout<<mxi + n - mni - 1;
 }
 
 int main(){

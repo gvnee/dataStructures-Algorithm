@@ -10,7 +10,15 @@ typedef long long ll;
 #define F first
 
 void f(){
-  
+  int n; cin>>n;
+  int a[n];
+  for(int i = 0;i<n;i++) cin>>a[i];
+  sort(a, a+n);
+  ll res = 0;
+  for(int i = 0;i<n;i++){
+    
+  }
+  cout<<res<<"\n";
 }
 
 int main(){
