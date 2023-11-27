@@ -1,16 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#define all(x) (x.begin(), x.end())
-#define sz(x) int((x).size())
-#define pii pair<int, int>
 typedef long long ll;
+#define sz(x) int((x).size())
 #define pb push_back
-#define S second
-#define F first
 
 void f(){
-  
+  char a, b; cin>>a>>b;
+  if(a>b) swap(a, b);
+  int r[] = {3, 1, 4, 1, 5, 9};
+  int res = 0;
+  for(int i = a-'A';i<b-'A';i++) res+=r[i];
+  cout<<res<<"\n";
 }
 
 int main(){

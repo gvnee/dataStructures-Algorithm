@@ -1,16 +1,16 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#define all(x) (x.begin(), x.end())
-#define sz(x) int((x).size())
-#define pii pair<int, int>
 typedef long long ll;
+#define sz(x) int((x).size())
 #define pb push_back
-#define S second
-#define F first
 
 void f(){
-  
+  int n;
+  cin>>n;
+  int r = n % 5;
+  if(r < 5-r) cout<<n-r<<"\n";
+  else cout<<n+5-r<<"\n";
 }
 
 int main(){

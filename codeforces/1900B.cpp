@@ -8,38 +8,17 @@ typedef long long ll;
 #define S second
 
 void f(){
-  vector<pair<int, int>> a;
-
-  for(int i = 0;i<3;i++){
-    int t;
-    cin>>t;
-    a.pb({t, i});
-  }
-
-  sort(a.begin(), a.end());
-  if(a[0].F == a[2].F && a[0].F == a[1].F){
-    cout<<"1 1 1\n";
-    return;
-  }
-
-  while(a[0].F != 0 || a[1].F != 0){
-    a[0].F += a[1].F;
-    a[2].F -= a[1].F;
-    a[1].F -= a[1].F;
-    sort(a.begin(), a.end());
-    if(a[0].F == a[2].F && a[0].F == a[1].F){
-      cout<<"1 1 1\n";
-      return;
-    }
-  }
-  sort(a.begin(), a.end());
-  if(a[2].S == 0){
-    cout<<"1 0 0\n";
-  }
-  else if(a[2].S == 1){
-    cout<<"0 1 0\n";
-  }
-  else cout<<"0 0 1\n";
+  int a, b, c;
+  cin>>a>>b>>c;
+  a %= 2;
+  b %= 2;
+  c %= 2;
+  if(b == c) cout<<"1 ";
+  else cout<<"0 ";
+  if(a == c) cout<<"1 ";
+  else cout<<"0 ";
+  if(a == b) cout<<"1\n";
+  else cout<<"0\n";
 }
 
 int main(){
