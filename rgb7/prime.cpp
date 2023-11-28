@@ -9,8 +9,18 @@ typedef long long ll;
 #define S second
 #define F first
 
+const int mxn = 1e6;
+
 void f(){
-  
+  ll n; cin>>n;
+  if(n == 0 || n == 1) {cout<<"NO"; return;}
+  for(ll i = 2;i*i<=n;i++){
+    if(n%i == 0){
+      cout<<"NO";
+      return;
+    }
+  }
+  cout<<"YES";
 }
 
 int main(){

@@ -10,7 +10,8 @@ typedef long long ll;
 #define F first
 
 void f(){
-  
+  double n; cin>>n;
+  printf("%.6lf", (2*n + 1)/ 3);
 }
 
 int main(){
