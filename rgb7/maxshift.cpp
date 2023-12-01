@@ -9,22 +9,23 @@ typedef long long ll;
 #define S second
 #define F first
 
+string mxStr(string a, string b){
+  for(int i = 0;i<sz(a);i++){
+    if(a[i] > b[i]) return a;
+    else if(a[i] < b[i]) return b;
+  }
+  return a;
+}
+
 void f(){
-  int n, m; cin>>n>>m;
-  int w[n+1], v[n+1];
-  for(int i = 1;i<=n;i++){
-    cin>>w[i]>>v[i];
+  string s; cin>>s;
+  vector<int> v;
+  string mx = s;
+  for(int i = 0;i<sz(s);i++){
+    rotate(s.begin(), s.begin()+1 , s.end());
+    mx = mxStr(mx, s);
   }
-  ll dp[m+1] = {};
-
-  for(int i = 1;i<=n;i++){
-    for(int j = m;j>=1;j--){
-      if(j-w[i] < 0) dp[j] = dp[j];
-      else dp[j] = max(dp[j], dp[j-w[i]] + v[i]);
-    }
-  }
-
-  cout<<dp[m]<<"\n";
+  cout<<mx<<"\n";
 }
 
 int main(){

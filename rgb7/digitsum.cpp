@@ -9,22 +9,21 @@ typedef long long ll;
 #define S second
 #define F first
 
+string digitsum(string s){
+  int n = 0;
+  for(char c:s) n += c-'0';
+  return to_string(n);
+}
+
 void f(){
-  int n, m; cin>>n>>m;
-  int w[n+1], v[n+1];
-  for(int i = 1;i<=n;i++){
-    cin>>w[i]>>v[i];
-  }
-  ll dp[m+1] = {};
-
-  for(int i = 1;i<=n;i++){
-    for(int j = m;j>=1;j--){
-      if(j-w[i] < 0) dp[j] = dp[j];
-      else dp[j] = max(dp[j], dp[j-w[i]] + v[i]);
+  string s;
+  while(cin>>s){
+    if(s == "0") break;
+    while(sz(s) != 1){
+      s = digitsum(s);
     }
+    cout<<s<<"\n";
   }
-
-  cout<<dp[m]<<"\n";
 }
 
 int main(){

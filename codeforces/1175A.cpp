@@ -10,27 +10,27 @@ typedef long long ll;
 #define F first
 
 void f(){
-  int n, m; cin>>n>>m;
-  int w[n+1], v[n+1];
-  for(int i = 1;i<=n;i++){
-    cin>>w[i]>>v[i];
-  }
-  ll dp[m+1] = {};
-
-  for(int i = 1;i<=n;i++){
-    for(int j = m;j>=1;j--){
-      if(j-w[i] < 0) dp[j] = dp[j];
-      else dp[j] = max(dp[j], dp[j-w[i]] + v[i]);
+  ll n, k; cin>>n>>k;
+  ll r = 0;
+  while(n>0){
+    if(n % k == 0){
+      n /= k;
+      r++;
+    }
+    else{
+      ll w = n/k;
+      ll rem = n - w*k;
+      n -= rem;
+      r += rem;
     }
   }
-
-  cout<<dp[m]<<"\n";
+  cout<<r<<"\n";
 }
 
 int main(){
   cin.tie(0); ios_base::sync_with_stdio(0);
   int t = 1;
-  // cin>>t;
+  cin>>t;
   while(t--) f();
   return 0;
 }

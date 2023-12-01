@@ -10,21 +10,22 @@ typedef long long ll;
 #define F first
 
 void f(){
-  int n, m; cin>>n>>m;
-  int w[n+1], v[n+1];
-  for(int i = 1;i<=n;i++){
-    cin>>w[i]>>v[i];
+  int n; cin>>n;
+  
+  ll cur = 5;
+  int i = 1;
+  while(n - cur > 0){
+    n -= cur;
+    cur *= 2;
+    i *= 2;
   }
-  ll dp[m+1] = {};
-
-  for(int i = 1;i<=n;i++){
-    for(int j = m;j>=1;j--){
-      if(j-w[i] < 0) dp[j] = dp[j];
-      else dp[j] = max(dp[j], dp[j-w[i]] + v[i]);
-    }
-  }
-
-  cout<<dp[m]<<"\n";
+  if(n % i == 0) n /= i;
+  else n = n/i + 1;
+  if(n == 1) cout<<"Sheldon";
+  if(n == 2) cout<<"Leonard";
+  if(n == 3) cout<<"Penny";
+  if(n == 4) cout<<"Rajesh";
+  if(n == 5) cout<<"Howard";
 }
 
 int main(){
