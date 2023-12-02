@@ -9,15 +9,9 @@ typedef long long ll;
 #define S second
 #define F first
 
-map<string, int> digit = {{"one", 1},
-                          {"two", 2},
-                          {"three", 3},
-                          {"four", 4},
-                          {"five", 5},
-                          {"six", 6},
-                          {"seven", 7},
-                          {"eight", 8},
-                          {"nine", 9}};
+map<string, string> digit = {{"one", "1"}, {"two", "2"}, {"three", "3"},
+                             {"four", "4"}, {"five", "5"}, {"six", "6"},
+                             {"seven", "7"}, {"eight", "8"}, {"nine", "9"}};
 
 bool isDigit(char c){
   return '0' <= c && c <= '9';
@@ -27,54 +21,33 @@ void f(){
   string s;
   ll res = 0;
   while(cin>>s){
-    string a = "";
+    string first = "", last = "";
     for(int i = 0;i<sz(s);i++){
-      string three = "", four = "", five = "";
+      string tre = "", fire = "", fem = "";
       if(isDigit(s[i])){
-        a += s[i];
-        break;
+        if(first=="") first = s[i];
+        last = s[i];
       }
 
-      if(i<=sz(s)-3) three = s.substr(i, 3);
-      if(i<=sz(s)-4) four = s.substr(i, 4);
-      if(i<=sz(s)-5) five = s.substr(i, 5);
-      if(digit.find(three) != digit.end()){
-        a += to_string(digit[three]);
-        break;
-      }
-      if(digit.find(four) != digit.end()){
-        a += to_string(digit[four]);
-        break;
-      }
-      if(digit.find(five) != digit.end()){
-        a += to_string(digit[five]);
-        break;
-      }
-    }
-    for(int i = sz(s)-1;i>=0;i--){
-      string three = "", four = "", five = "";
-      if(isDigit(s[i])){
-        a += s[i];
-        break;
-      }
-      if(i<=sz(s)-3) three = s.substr(i, 3);
-      if(i<=sz(s)-4) four = s.substr(i, 4);
-      if(i<=sz(s)-5) five = s.substr(i, 5);
-      if(digit.find(three) != digit.end()){
-        a += to_string(digit[three]);
-        break;
-      }
-      if(digit.find(four) != digit.end()){
-        a += to_string(digit[four]);
-        break;
-      }
-      if(digit.find(five) != digit.end()){
-        a += to_string(digit[five]);
-        break;
-      }
+      if(i<=sz(s)-3) tre = s.substr(i, 3);
+      if(i<=sz(s)-4) fire = s.substr(i, 4);
+      if(i<=sz(s)-5) fem = s.substr(i, 5);
 
+      if(digit.find(tre) != digit.end()){
+        last = digit[tre];
+        if(first == "") first = last;
+      }
+      if(digit.find(fire) != digit.end()){
+        last = digit[fire];
+        if(first == "") first = last;
+      }
+      if(digit.find(fem) != digit.end()){
+        last = digit[fem];
+        if(first == "") first = last;
+      }
     }
-    res += stoi(a);
+    first += last;
+    res += stoi(first);
   }
   cout<<res<<"\n";
 }
