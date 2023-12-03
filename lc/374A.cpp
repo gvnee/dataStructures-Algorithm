@@ -9,16 +9,20 @@ typedef long long ll;
 #define S second
 #define F first
 
-void f(){
-  // int a;
-  // cin>>a;
-  cout<<__gcd(-2, 2);
+vector<int> findPeaks(vector<int>& mountain){
+  vector<int> res;
+  for(int i = 1;i<sz(mountain) - 1;i++){
+    if(mountain[i] > mountain[i-1] && mountain[i] > mountain[i+1]){
+      res.pb(i);
+    }
+  }
+  return res;
 }
 
 int main(){
   cin.tie(0); ios_base::sync_with_stdio(0);
   int t = 1;
   // cin>>t;
-  while(t--) f();
+  while(t--) findPeaks();
   return 0;
 }

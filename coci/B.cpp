@@ -10,9 +10,10 @@ typedef long long ll;
 #define F first
 
 void f(){
-  // int a;
-  // cin>>a;
-  cout<<__gcd(-2, 2);
+  int n; cin>>n;
+  int x, y, z; cin>>x>>y>>z;
+  int a, b, c; cin>>a>>b>>c;
+  cout<<abs(x-a) + abs(y-b) + abs(z-c);
 }
 
 int main(){

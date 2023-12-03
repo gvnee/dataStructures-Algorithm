@@ -5,3 +5,5 @@ https://codeforces.com/contest/1513
 https://codeforces.com/contest/1671
 https://codeforces.com/contest/1328
 https://codeforces.com/contest/1742/problem/D
+https://atcoder.jp/contests/abc331
+https://leetcode.com/contest/weekly-contest-374/

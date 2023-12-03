@@ -10,15 +10,21 @@ typedef long long ll;
 #define F first
 
 void f(){
-  // int a;
-  // cin>>a;
-  cout<<__gcd(-2, 2);
+  int n; cin>>n;
+  string s; cin>>s;
+  int z = 0;
+  for(int i = 0;i<sz(s);i++){
+    if(s[i] == '0') z++;
+  }
+  if(z == 0) cout<<"NO\n";
+  else cout<<"YES\n";
 }
+
 
 int main(){
   cin.tie(0); ios_base::sync_with_stdio(0);
   int t = 1;
-  // cin>>t;
+  cin>>t;
   while(t--) f();
   return 0;
 }
