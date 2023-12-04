@@ -11,9 +11,8 @@ typedef long long ll;
 
 void f(){
   ll n, p, lesson, task; cin>>n>>p>>lesson>>task;
-  ll tasks;
-  if(n%7 == 0) tasks = n/7;
-  else tasks = n/7 + 1;
+  ll tasks = n/7;
+  if(n%7) tasks++;
   ll l = 0, r = n, mid = 0;
   while(l<r){
     mid = l + (r-l)/2;
@@ -29,7 +28,8 @@ void f(){
 
 // void f(){
 //   ll n, p, lesson, task; cin>>n>>p>>lesson>>task;
-//   ll tasks = n / 7 + n % 7;
+//   ll tasks = n / 7;
+//   if(n&7 == 0) tasks++;
 //   for(int i = n;i>=1;i-=7){
     
 //   }

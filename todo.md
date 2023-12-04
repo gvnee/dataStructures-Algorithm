@@ -1,9 +1,23 @@
 https://leetcode.com/problems/count-beautiful-substrings-ii/
 https://leetcode.com/problems/minimum-time-difference/
+https://leetcode.com/contest/weekly-contest-374/
+https://codeforces.com/contest/1742/problem/D
 https://atcoder.jp/contests/dp/tasks
 https://codeforces.com/contest/1513
 https://codeforces.com/contest/1671
 https://codeforces.com/contest/1328
-https://codeforces.com/contest/1742/problem/D
+https://codeforces.com/contest/1902
 https://atcoder.jp/contests/abc331
-https://leetcode.com/contest/weekly-contest-374/
+
+# trie
+
+https://leetcode.com/problems/longest-word-in-dictionary/
+https://codeforces.com/problemset/problem/455/B
+https://codeforces.com/problemset/problem/706/D
+https://codeforces.com/problemset/problem/282/E
+https://codeforces.com/gym/101628/problem/K
+https://www.codechef.com/problems/NPLFLF
+https://vjudge.net/problem/UVALive-8015
+https://www.spoj.com/problems/ADAINDEX/
+https://www.spoj.com/problems/DICT/
+https://wcipeg.com/problem/ioi0811
