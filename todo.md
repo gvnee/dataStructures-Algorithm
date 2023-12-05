@@ -1,5 +1,4 @@
 https://leetcode.com/problems/count-beautiful-substrings-ii/
-https://leetcode.com/problems/minimum-time-difference/
 https://leetcode.com/contest/weekly-contest-374/
 https://codeforces.com/contest/1742/problem/D
 https://atcoder.jp/contests/dp/tasks
@@ -8,10 +7,14 @@ https://codeforces.com/contest/1671
 https://codeforces.com/contest/1328
 https://codeforces.com/contest/1902
 https://atcoder.jp/contests/abc331
+https://leetcode.com/problems/minimum-time-difference/
+https://codeforces.com/contest/1886
+train-usaco arithmetic
 
 # trie
 
 https://leetcode.com/problems/longest-word-in-dictionary/
+https://www.youtube.com/watch?v=MyiHeqtwOWQ&t=2700s
 https://codeforces.com/problemset/problem/455/B
 https://codeforces.com/problemset/problem/706/D
 https://codeforces.com/problemset/problem/282/E
