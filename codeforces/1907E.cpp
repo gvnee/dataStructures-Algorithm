@@ -9,25 +9,20 @@ typedef long long ll;
 #define S second
 #define F first
 
-int ds(int a){
-  int c = 0;
-  while(a > 0){
-    c += a%10;
-    a/=10;
-  }
-  return c;
-}
-
 void f(){
-  int n; cin>>n;
-  int need = ds(n);
-  for(int i = 0;i<n;i++){
-    if(ds(i) > need) continue;
-    for(int j = 0;j<n;j++){
-      int k = n - i - j;
-      if(k<0 || ds(i) + ds(j) + ds(k) > )
+  string s; cin>>s;
+  ll res = 1;
+  for(char c:s){
+    int a = c-'0';
+    int cur = 0;
+    for(int i = 0;i<=a;i++){
+      for(int j = 0;j<=a;j++){
+        if(a-i-j >= 0) cur++;
+      }
     }
+    res *= cur;
   }
+  cout<<res<<"\n";
 }
 
 int main(){

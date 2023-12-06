@@ -9,17 +9,36 @@ typedef long long ll;
 #define S second
 #define F first
 
+int a[26] = {};
+bool done(){
+  int c = 0;
+  for(int i = 0;i<26;i++) if(a[i]) c++;
+  return c <= 1;
+}
 
 void f(){
+
+  for(int i = 0;i<26;i++) a[i] = 0;
+  
   int n; cin>>n;
   string s; cin>>s;
-  int a[26] = {};
   for(char c:s) a[c-'a']++;
-  sort(a, a+n);
-  if(a[25] >= n-a[25]){
-    cout<<a[25]-(n-a[25])<<"\n";
+
+  while(!done()){
+    sort(a, a+26);
+    int mn = 0;
+    int mx = 25;
+    for(int i = 0;i<26;i++){
+      if(a[i]){
+        mn = i;
+        break;
+      }
+    }
+    a[mx]--;
+    a[mn]--;
   }
-  else cout<<n%2<<"\n";
+  sort(a, a+26);
+  cout<<a[25]<<"\n";
 }
 
 int main(){

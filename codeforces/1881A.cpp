@@ -10,24 +10,22 @@ typedef long long ll;
 #define F first
 
 void f(){
-  int n, k; cin>>n>>k;
-  int p = 0;
-  if(n % 2 == 0) p = n/2-1;
-  else p = n/2;
-  if(k>p){
-    cout<<"-1\n";
-    return;
-  }
-  int a[n];
-  for(int i = 0;i<n;i++) a[i] = i+1;
+  int n, m; cin>>n>>m;
+  string a, b; cin>>a>>b;
   int cur = 0;
-  for(int i = 1;i<n;i+=2){
-    if(cur == k) break;
-    swap(a[i], a[i+1]);
+  while(cur<10){
+    if(sz(a) >= sz(b)){
+      for(int i = 0;i<sz(a)-sz(b)+1;i++){
+        if(a.substr(i, sz(b)) == b){
+          cout<<cur<<"\n";
+          return;
+        }
+      }
+    }
     cur++;
+    a = a+a;
   }
-  for(int i = 0;i<n;i++) cout<<a[i]<<" ";
-  cout<<"\n";
+  cout<<"-1"<<"\n";
 }
 
 int main(){
