@@ -1,9 +1,12 @@
 https://leetcode.com/problems/count-beautiful-substrings-ii/
+https://leetcode.com/problems/minimum-time-difference/
 https://leetcode.com/contest/weekly-contest-374/
 https://codeforces.com/contest/1742/problem/D
+https://codeforces.com/contest/1907/problem/D
+https://codeforces.com/contest/1881/problem/E
+https://codeforces.com/contest/1878/problem/E
 https://atcoder.jp/contests/dp/tasks
 https://atcoder.jp/contests/abc331
-https://leetcode.com/problems/minimum-time-difference/
 train-usaco arithmetic
 
 # trie
