@@ -1,4 +1,3 @@
-https://leetcode.com/problems/count-beautiful-substrings-ii/
 https://leetcode.com/problems/minimum-time-difference/
 https://leetcode.com/contest/weekly-contest-374/
 https://codeforces.com/contest/1742/problem/D
