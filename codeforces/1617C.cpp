@@ -12,33 +12,38 @@ typedef long long ll;
 void f(){
   int n; cin>>n;
   int a[n];
-  bool per[n+1] = {};
-  int have = 0;
+  bool seen[n+1] = {};
   for(int i = 0;i<n;i++){
     cin>>a[i];
-    if(a[i] <= n) per[a[i]] = true;
-    else if(a[i] >= n*2-1) have++;
   }
-
-  int res = have;
-  for(int i = 1;i<=n;i++){
-    if(!per[i]){
-      have--;
+  sort(a, a+n);
+  int res = 0;
+  int cur = 1;
+  for(int i = 0;i<n;i++){
+    if(a[i] <= n){
+      if(!seen[a[i]]){
+        seen[a[i]] = true;
+      }
+      else{
+        
+      }
     }
-    if(have < 0){
-      cout<<"-1\n";
-      return;
+    else{
+      int can = a[i]/2;
+      if(a[i] % 2 == 0) can--;
+      if(can >= cur){
+        res++;
+        while(!seen[cur]){
+          cur++;
+        }
+      }
+      else{
+        cout<<"-1\n";
+        return;
+      }
     }
   }
   cout<<res<<"\n";
-  // for(int i = 1;i<=20;i++){
-  //   cout<<i<<": ";
-  //   for(int j = 1;j<=i;j++){
-  //     cout<<i%j<<" ";
-  //   }
-  //   cout<<"\n";
-  // }
-  
 }
 
 int main(){

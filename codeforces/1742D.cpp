@@ -11,12 +11,20 @@ typedef long long ll;
 
 void f(){
   int n; cin>>n;
-  int a[n];
-  for(int i = 0;i<n;i++) cin>>a[i];
-  bool d[1001] = {};
-  for(int i = n-1;i>=0;i--){
-    
+  int a[1001] = {};
+  for(int i = 0;i<n;i++){
+    int t; cin>>t;
+    a[t] = i+1;
   }
+
+  int res = -1;
+  for(int i = 1;i<=1000;i++){
+    for(int j = i;j<=1000;j++){
+      if(a[i] && a[j] && __gcd(i, j) == 1)
+        res = max(res, a[i] + a[j]);
+    }
+  }
+  cout<<res<<"\n";
 }
 
 int main(){

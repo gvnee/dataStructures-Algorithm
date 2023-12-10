@@ -11,26 +11,28 @@ typedef long long ll;
 
 void f(){
   int n; cin>>n;
-  int a[n];
-  ll res = 0;
+  vector<pair<ll, ll>> v(n);
   for(int i = 0;i<n;i++){
-    cin>>a[i];
-    if(a[i] > 0) res += a[i];
+    cin>>v[i].F;
+    v[i].S = i;
   }
+  sort(all(v));
 
-  if(n == 1){
-    cout<<max(0, a[0])<<"\n";
-    return;
+  for(int i = 1;i<n;i++){
+    v[i].F += v[i-1].F;
   }
   
-  if(a[0] < 0){
-    if(a[1] < 0){
-      cout<<res<<"\n";
-      return;
+  ll res[n] = {};
+  ll r[n] = {};
+  for(int i = n-1;i>=0;i--){
+    res[v[i].S] = i;
+    if(i != n-1 && v[i].F >= v[i+1].F - v[i].F){
+      r[i] = r[i+1] + 1;
+      res[v[i].S] += r[i];
     }
-    res = max({res + a[0],res - a[1]});
   }
-  cout<<res<<"\n";
+  for(int i = 0;i<n;i++) cout<<res[i]<<" ";
+  cout<<"\n";
 }
 
 int main(){
