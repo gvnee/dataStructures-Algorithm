@@ -9,74 +9,55 @@ typedef long long ll;
 #define S second
 #define F first
 
-vector<vector<int>> b;
-int h, w;
-
-vector<vector<int>> swapR(int i, vector<vector<int>> a){
-  swap(a[i], a[i+1]);
-  return a;
-}
-
-vector<vector<int>> swapC(int i, vector<vector<int>> a){
-  i -= h;
-  vector<vector<int>> c = a;
-  for(int j = 0;j<h;j++){
-    c[j][i] = a[j][i+1];
-  }
-  for(int j = 0;j<h;j++){
-    c[j][i+1] = a[j][i];
-  }
-  return c;
-}
-
-queue<int> q;
-
-void bfs(vector<vector<int>> a, int depth, int from){
-  if(a == b){
-    cout<<depth<<"\n";
-    return;
-  }
-  for(int i = 0;i<h-1;i++){
-    if(i == from) continue;
-    vector<vector<int>> c = swapR(i, a);
-    bfs(c, depth+1, i);
-  }
-  for(int i = h;i<w-1;i++){
-    if(i == from) continue;
-    vector<vector<int>> c = swapC(i, a);
-    bfs(c, depth+1, i);
-  }
-}
-
 void f(){
-  cin>>h>>w;
-  map<int, int> aa, bb;
-  vector<vector<int>> a(h, vector<int> (w));
-  vector<vector<int>> bc(h, vector<int> (w));
+  int h, w; cin>>h>>w;
+
+  map<vector<vector<int>>, bool> visited;
   
+  vector<vector<int>> a(h, vector<int> (w)), b(h, vector<int> (w));
   for(int i = 0;i<h;i++){
     for(int j = 0;j<w;j++){
       cin>>a[i][j];
-      aa[a[i][j]]++;
     }
   }
   for(int i = 0;i<h;i++){
     for(int j = 0;j<w;j++){
-      cin>>bc[i][j];
-      bb[bc[i][j]]++;
+      cin>>b[i][j];
     }
   }
-
-  if(aa != bb){
-    cout<<"-1\n";
-    return;
-  }
-  b = bc;
-  queue<int> q;
+  queue<pair<vector<vector<int>>, int>> q;
+  q.push({a, 0});
   while(!q.empty()){
+    auto [cur, depth] = q.front();
+    q.pop();
 
+    if(visited[cur]) continue;
+    visited[cur] = true;
+
+    if(cur == b){
+      cout<<depth<<"\n";
+      return;
+    }
+
+    for(int i = 0;i<h-1;i++){
+      swap(cur[i], cur[i+1]);
+      q.push({cur, depth+1});
+      swap(cur[i], cur[i+1]);
+    }
+
+    for(int i = 0;i<w-1;i++){
+      for(int j = 0;j<h;j++){
+        swap(cur[j][i], cur[j][i+1]);
+      }
+      q.push({cur, depth+1});
+      for(int j = 0;j<h;j++){
+        swap(cur[j][i], cur[j][i+1]);
+      }
+    }
+    
   }
-  
+
+  cout<<"-1\n";
 }
 
 int main(){

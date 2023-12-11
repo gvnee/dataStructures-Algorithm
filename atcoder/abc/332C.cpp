@@ -23,15 +23,11 @@ void f(){
     else if(c == '1'){
       if(plain) plain--;
       else if(logo) logo--;
-      else{
-        logoMax++;
-      }
+      else logoMax++;
     }
     else{
       if(logo) logo--;
-      else{
-        logoMax++;
-      }
+      else logoMax++;
     }
   }
   cout<<logoMax<<"\n";

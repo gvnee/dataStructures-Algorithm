@@ -1,9 +1,8 @@
 https://leetcode.com/contest/weekly-contest-374/
-https://codeforces.com/contest/1617/problem/C
+https://atcoder.jp/contests/abc331/
 https://codeforces.com/contest/1881/problem/E
 https://codeforces.com/contest/1878/problem/E
 https://atcoder.jp/contests/dp/tasks
-https://atcoder.jp/contests/abc331
 train-usaco arithmetic
 
 # trie
@@ -21,3 +20,7 @@ https://www.spoj.com/problems/DICT/
 https://wcipeg.com/problem/ioi0811
 
 # BFS
+
+# stress testing testing
+
+https://ali-ibrahim137.github.io/competitive/programming/2020/08/23/Stress-Testing.html
