@@ -1,5 +1,7 @@
 https://leetcode.com/contest/weekly-contest-374/
 https://atcoder.jp/contests/abc331/
+https://codeforces.com/contest/1862/problem/F
+https://codeforces.com/contest/1862/problem/E
 https://codeforces.com/contest/1881/problem/E
 https://codeforces.com/contest/1878/problem/E
 https://atcoder.jp/contests/dp/tasks
