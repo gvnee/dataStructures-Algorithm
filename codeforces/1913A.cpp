@@ -10,26 +10,34 @@ typedef long long ll;
 #define F first
 
 void f(){
-  int n; cin>>n;
   string s; cin>>s;
+  string a = "", b = "";
+  bool f = false;
+  for(char c:s){
+    if(f) b += c;
+    else if(a == ""){
+      a += c;
+    }
+    else if(c == '0'){
+      a += c;
+    }
+    else{
+      b += c;
+      f = true;
+    }
+  }
 
-  if(is_sorted(all(s))){
-    cout<<"0\n";
+  if(b == "" || a[0] == '0' || b[0] == '0'){
+    cout<<"-1\n";
     return;
   }
   
-  vector<char> largest;
-  for(int i = n-1;i>=0;i--){
-    if(largest.empty() || largest.back() <= s[i]){
-      largest.pb(s[i]);
-    }
+  int aa = stoi(a);
+  int bb = stoi(b);
+  if(aa>=bb){
+    cout<<"-1\n";
   }
-  vector<char> cpy = largest;
-  sort(all(cpy));
-  if(cpy == largest){
-    cout<<sz(largest) - 1<<"\n";
-  }
-  else cout<<"-1\n";
+  else cout<<a<<" "<<b<<"\n";
 }
 
 int main(){

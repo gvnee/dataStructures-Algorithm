@@ -10,22 +10,7 @@ typedef long long ll;
 #define F first
 
 void f(){
-  int n; cin>>n;
-  vector<int> adj[n];
-  for(int i = 0;i<n-1;i++){
-    int a, b;
-    cin>>a>>b;
-    a--, b--;
-    adj[a].pb(b);
-    adj[b].pb(a);
-  }
-  int leaves = 0;
-  for(int i = 0;i<n;i++){
-    if(sz(adj[i]) == 1){
-      leaves++;
-    }
-  }
-  cout<<(leaves+1)/2<<"\n";
+  
 }
 
 int main(){
