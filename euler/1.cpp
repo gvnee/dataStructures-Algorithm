@@ -9,15 +9,12 @@ typedef long long ll;
 #define S second
 #define F first
 
-int rec(int n){
-  if(n==0) return 0;
-  return rec(n-1)+n;
-}
-
 void f(){
-  // cout<<rec(100)<<"\n";
-  int a = -2, b = -3;
-  cout<<abs(a-b);
+  ll n = 999;
+  ll res = ((999 + 3) * (n/3))/2
+          +((995 + 5) * (n/5))/2
+          -((990 + 15) * (n/15))/2;
+  cout<<res<<"\n";
 }
 
 int main(){

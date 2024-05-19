@@ -1,3 +1,5 @@
+//eepy_eepy_kittyyy_
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -9,15 +11,19 @@ typedef long long ll;
 #define S second
 #define F first
 
-int rec(int n){
-  if(n==0) return 0;
-  return rec(n-1)+n;
-}
-
 void f(){
-  // cout<<rec(100)<<"\n";
-  int a = -2, b = -3;
-  cout<<abs(a-b);
+  int m, n; cin>>m>>n;
+  bool a[n] = {};
+  for(int i = 0;i<m;i++){
+    for(int j = 0;j<n;j++){
+      int t;
+      cin>>t;
+      if(t) a[j] = true;
+    }
+  }
+  int res = 0;
+  for(int i = 0;i<n;i++) if(a[i]) res++;
+  cout<<res<<"\n";
 }
 
 int main(){

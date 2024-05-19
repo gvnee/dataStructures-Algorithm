@@ -9,15 +9,20 @@ typedef long long ll;
 #define S second
 #define F first
 
-int rec(int n){
-  if(n==0) return 0;
-  return rec(n-1)+n;
-}
+const int N = 4000000;
+const int MXN = 1e6;
 
 void f(){
-  // cout<<rec(100)<<"\n";
-  int a = -2, b = -3;
-  cout<<abs(a-b);
+  ll dp[MXN] = {};
+  dp[0] = 1;
+  dp[1] = 2;
+  ll res = 2;
+  for(int i = 2;i<MXN;i++){
+    dp[i] = dp[i-1] + dp[i-2];
+    if(dp[i]>N) break;
+    if(dp[i] % 2 == 0) res += dp[i];
+  }
+  cout<<res<<"\n"; 
 }
 
 int main(){
@@ -27,3 +32,5 @@ int main(){
   while(t--) f();
   return 0;
 }
+
+// 1 1 2 3 5 8 13 21 34 55 89

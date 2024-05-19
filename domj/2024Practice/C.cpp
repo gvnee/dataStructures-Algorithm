@@ -9,21 +9,28 @@ typedef long long ll;
 #define S second
 #define F first
 
-int rec(int n){
-  if(n==0) return 0;
-  return rec(n-1)+n;
-}
+const int M = 1000000009;
 
 void f(){
-  // cout<<rec(100)<<"\n";
-  int a = -2, b = -3;
-  cout<<abs(a-b);
+  int n; cin>>n;
+
+  ll a[] = {1, 1, 1};
+  ll b[] = {1, 1, 1};
+  for(int i = 2;i<=n;i++){
+    b[0] = a[0] + a[1];
+    b[1] = a[0] + a[1] + a[2];
+    b[2] = a[1] + a[2];
+    a[0] = b[0] % M;
+    a[1] = b[1] % M;
+    a[2] = b[2] % M;
+  }
+  cout<<(b[0] + b[1] + b[2])%M<<"\n";
 }
 
 int main(){
   cin.tie(0); ios_base::sync_with_stdio(0);
   int t = 1;
-  // cin>>t;
+  cin>>t;
   while(t--) f();
   return 0;
 }

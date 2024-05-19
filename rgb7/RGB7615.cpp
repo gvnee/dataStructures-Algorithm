@@ -9,15 +9,21 @@ typedef long long ll;
 #define S second
 #define F first
 
-int rec(int n){
-  if(n==0) return 0;
-  return rec(n-1)+n;
-}
-
 void f(){
-  // cout<<rec(100)<<"\n";
-  int a = -2, b = -3;
-  cout<<abs(a-b);
+  int n;
+  cin>>n;
+  int a[n];
+  for(int i = 0;i<n;i++){
+    cin>>a[i];
+  }
+  sort(a, a+n);
+  int dp[n] = {};
+  dp[1] = a[1] - a[0];
+  dp[2] = dp[1] + a[2] - a[1];
+  for(int i = 3;i<n;i++){
+    dp[i] = a[i] - a[i-1] + min(dp[i-1], dp[i-2]);
+  }
+  cout<<dp[n-1]<<"\n";
 }
 
 int main(){

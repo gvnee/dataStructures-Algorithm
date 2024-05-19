@@ -1,40 +1,48 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-typedef long long ll;
+#define all(x) x.begin(), x.end()
 #define sz(x) int((x).size())
+typedef long long ll;
 #define pb push_back
-
-bool comp(const pair<int, int> &a, const pair<int, int> &b){
-  return a.first < b.first;
-}
+#define S second
+#define F first
 
 void f(){
-  int n, x;
-  cin>>n>>x;
-  vector<pair<int, int>> v(n);
-  int t;
-  for(int i = 0;i<n;i++){
-    cin>>t;
-    v[i] = {t, i};
+  ll n, x; cin>>n>>x;
+  vector<pair<ll, ll>> a;
+  for(ll i = 0;i<n;i++){
+    ll t; cin>>t;
+    a.pb({t, i+1});
   }
-  sort(v.begin(), v.end());
+  sort(all(a));
+
   for(int i = 0;i<n;i++){
-    for(int j = i+1;j<n;j++){
-      int need = x - v[i].first + v[j].first;
-      auto it = lower_bound(v.begin(), v.end(), need, comp);
-      if(it == v.end()) continue;
-      cout<<i+1<<" "<<j+1<<" "<<*it<<"\n";
-      return;
+    ll need = x - a[i].F;
+
+    int l = i+1, r = n-1;
+    while(l<r){
+      if(a[l].F + a[r].F > need){
+        r--;
+        continue;
+      }
+      if(a[l].F + a[r].F == need){
+        cout<<a[i].S<<" "<<a[l].S<<" "<<a[r].S<<"\n";
+        return;
+      }
+      l++;
     }
   }
+  
   cout<<"IMPOSSIBLE\n";
 }
 
 int main(){
   cin.tie(0); ios_base::sync_with_stdio(0);
+
   int t = 1;
   // cin>>t;
   while(t--) f();
+  
   return 0;
 }

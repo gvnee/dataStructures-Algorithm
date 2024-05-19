@@ -9,15 +9,20 @@ typedef long long ll;
 #define S second
 #define F first
 
-int rec(int n){
-  if(n==0) return 0;
-  return rec(n-1)+n;
+ll binpow(ll a, ll b){
+  ll res = 1;
+  while(b){
+    if(b&1) res *= a;
+    a *= a;
+    b >>= 1;
+  }
+  return res;
 }
 
 void f(){
-  // cout<<rec(100)<<"\n";
-  int a = -2, b = -3;
-  cout<<abs(a-b);
+  int n;
+  cin>>n;
+  cout<<24 * binpow(4, n-3) + (n-3) * 4 * 3 * 3 * binpow(4, max(n-4, 0));
 }
 
 int main(){
