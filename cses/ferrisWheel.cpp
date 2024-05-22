@@ -10,21 +10,28 @@ typedef long long ll;
 #define F first
 
 void f(){
-  int n; cin>>n;
-  vector<pair<ll, ll>> a;
+  int n, x; cin>>n>>x;
+  int a[n];
   for(int i = 0;i<n;i++){
-    ll x, y; cin>>x>>y;
-    a.pb({y, x});
+    cin>>a[i];
   }
-  sort(all(a));
-  int res = 1;
-  ll last = a[0].F;
-  for(int i = 1;i<n;i++){
-    if(a[i].S >= last){
+  sort(a, a+n);
+  int res = 0;
+
+  int l = 0, r = n-1;
+  while(l<=r){
+    if(l == r){
       res++;
-      last = a[i].F;
+      break;
     }
+    if(a[l] + a[r] <= x){
+      res++;
+      l++;
+      r--;
+    }
+    else r--, res++;
   }
+  
   cout<<res<<"\n";
 }
 
