@@ -10,25 +10,19 @@ typedef pair<int,int> pi;
 #define all(x) x.begin(), x.end()
 
 void f(){
-  int n; cin>>n;
-  vector<pi> v;
+  int n, k; cin>>n>>k;
+  vector<pi> a;
   for(int i = 0;i<n;i++){
-    int a, d;
-    cin>>a>>d;
-    v.pb({a, d});
+    int x, y;
+    cin>>x>>y;
+    a.pb({y, x});
   }
-  sort(all(v));
-  int finish = 0;
-  int res = 0;
-  for(auto [duration, deadline]:v){
-    finish += duration;
-    res += deadline - finish;
-  }
-  cout<<res<<"\n";
+  sort(all(a));
+  sz(a);
 }
 
 signed main(){
-  cin.tie(0); ios_base::sync_with_stdio(0);
+  cin.tie(0); ios::sync_with_stdio(0);
   int t = 1;
   // cin>>t;
   while(t--) f();
