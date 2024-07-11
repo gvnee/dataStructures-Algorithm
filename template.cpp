@@ -5,7 +5,7 @@ using namespace std;
 #define S second
 #define pb push_back
 #define int long long
-#define pi pair<int,int>
+#define pl pair<int,int>
 #define sz(x) (int)(x).size()
 #define all(x) x.begin(), x.end()
 
